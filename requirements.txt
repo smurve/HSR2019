@@ -1,0 +1,7 @@
+tensorflow==1.8
+tensorflow_transform
+jupyterlab
+numpy
+matplotlib
+pandas
+seaborn
