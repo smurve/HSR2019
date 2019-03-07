@@ -1,4 +1,4 @@
-# Maschine Learning Lösungen im produktiven Einsatz
+# Machine Learning Lösungen im produktiven Einsatz
 2 Doppelstunden Vorlesung mit entsprechenden Übungen
  
 ## Problembeispiel: Vorhersage von Flugverspätungen im US Luftraum
@@ -12,12 +12,12 @@ Vortrag unidirektional. 90 min. (Doppelstunde)
 Aufgrund der speziellen Anforderungen, die der Betrieb von Machine Learning Lösungen mit sich bringt, wurden in den vergangenen Jahren neue, potentere Konzepte und Architekturkonzepte entwickelt. Diese Konzepte tragen vor allem dem massiven Einsatz von Daten- und Compute-Kapazitäten Rechnung. Eine produktionstaugliche Gesamtarchitektur muss zudem auch das erhöhte Risiko von Fehlfunktionen konsequent behandeln.
  
 ### Anforderungen an ML generell
--                Performanz,
--                Resilienz,
--                Robustheit (gegen Bugs)
--                Einfachheit
--                Unterstützung f. explorative Entwicklung.
--                Unterstützung f. statistisches Arbeiten.
+- Performanz
+- Resilienz
+- Robustheit (gegen Bugs)
+- Einfachheit
+- Unterstützung f. explorative Entwicklung
+- Unterstützung f. statistisches Arbeiten
 -                Beobachten mittels TensorBoard.
  
 ### Anforderungen an den Produktivbetrieb
@@ -28,7 +28,7 @@ Aufgrund der speziellen Anforderungen, die der Betrieb von Machine Learning Lös
 -                A/B Testing
  
 ### Architekturkomponenten:
-BigQuery: Petabyte-scale analytical database.
+-                BigQuery: Petabyte-scale analytical database.
 -                DataFlow: Highly parallel data processing pipelines.
 -                ML Engine: Machine Learning at scale.
 -                Datalab: Exploratives Arbeiten mit Jupyter Notebooks
