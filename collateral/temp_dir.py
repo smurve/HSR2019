@@ -1,1 +1,0 @@
-temp_dir = '/tmp/tmpqmz6u8ab'
