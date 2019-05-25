@@ -44,5 +44,5 @@ def measure(size, amplitude=8.0):
     #df = pd.DataFrame({'x': x_data, 'y': y_data, 'weekday': dow_data, 'hour': hod_data, 
     #                   'f_orig': f_data, 'p': f_perf, 'special': f_special, 'f': f_total})
     df = pd.DataFrame({'beta1': x_data, 'beta2': y_data, 
-                       'weekday': dow_data, 'hour': hod_data, 'humidity': f_total})
+                       'hour': hod_data, 'humidity': f_total, 'weekday': dow_data})
     return df
