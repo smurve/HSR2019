@@ -15,13 +15,18 @@ Sowohl mit Firefox als auch mit Chrome funktioniert JupyterLab gut.
 
 ## Freiwillig: Installation von Git
 
-Sie können die Dateien für die Übung als Zip-Archiv herunterladen oder das Repository mit Git auf ihren eigenen Computer clonen. Eine Anleitung zur Git-Installation finden Sie auf <https://tutorial.djangogirls.org/de/installation/#git-installieren>.[^ausklappen]
+Sie können die Dateien für die Übung als Zip-Archiv herunterladen oder das Repository mit Git auf ihren eigenen Computer clonen.
 
-(Nur diesen einen Abschnitt der verlinkten Anleitung verwenden, da er Teil einer grösseren Anleitung für etwas anderes ist. Einen GitHub-Account benötigen Sie für diese Übung nicht).
+### Git-Installation auf Windows & OS X:
 
-:::info
-:bulb: Auf Windows liefert die Git-Installation auch die MinGW-basierte "Git Bash" mit, mit der sich die Kommandozeile in Unix-Art und etwas komfortabler als mit CMD verwenden lässt.
-:::
+Laden Sie den Installer von <https://git-scm.com/downloads> herunter.
+
+### Git-Installation auf Linux
+
+Anleitungen für die Installation
+über die Paket-Manager diverser Linux-Distributionen
+finden sie unter <https://git-scm.com/download/linux>.
+
 
 ## Installation der benötigten Software
 
