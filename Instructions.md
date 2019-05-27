@@ -152,7 +152,7 @@ und bei Schritt 5 fortfahren.)
 
 Das Ergebnis sollte so aussehen:
 
-![Jupyter Lab in Firefox](https://user-images.githubusercontent.com/97746/58434205-bfb39300-80ba-11e9-87db-1afa742c2f8d.png)
+![Jupyter Lab in Firefox](images/Screenshot_JupyterLab_in_Firefox.png)
 
 Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläche darin nicht korrekt dargestellt wird (z.B. in Internet Explorer oder Edge) öffnen sie die im Terminal angezeigte URL in Firefox oder Chrome.
 
@@ -192,7 +192,7 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
    jupyter lab
    ```
    Das Ergebnis sollte so aussehen:  
-   ![Jupyter Lab in Firefox](https://user-images.githubusercontent.com/97746/58434205-bfb39300-80ba-11e9-87db-1afa742c2f8d.png)
+   ![Jupyter Lab in Firefox](images/Screenshot_JupyterLab_in_Firefox.png)
 2. Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläche darin nicht korrekt dargestellt wird (z.B. in Internet Explorer oder Edge) öffnen sie die im Terminal angezeigte URL in Firefox oder Chrome.
 3. Starten Sie ein Python-Notebook durch den entsprechenden Button.
 4. Geben Sie folgenden Python-Code in die oberste Notebook-Zelle ein:
