@@ -150,6 +150,12 @@ und bei Schritt 5 fortfahren.)
    jupyter lab
    ```
 
+Das Ergebnis sollte so aussehen:
+
+![Jupyter Lab in Firefox](https://user-images.githubusercontent.com/97746/58434205-bfb39300-80ba-11e9-87db-1afa742c2f8d.png)
+
+Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläche darin nicht korrekt dargestellt wird (z.B. in Internet Explorer oder Edge) öffnen sie die im Terminal angezeigte URL in Firefox oder Chrome.
+
 ### Variante B: Lokale Python-Installation
 
 **Für Linux und OS X empfohlene Variante**
@@ -186,7 +192,7 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
    jupyter lab
    ```
    Das Ergebnis sollte so aussehen:  
-   ![](https://md.coredump.ch/uploads/upload_3c1d6bc77646c035b02cd38bd981220a.png)
+   ![Jupyter Lab in Firefox](https://user-images.githubusercontent.com/97746/58434205-bfb39300-80ba-11e9-87db-1afa742c2f8d.png)
 2. Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläche darin nicht korrekt dargestellt wird (z.B. in Internet Explorer oder Edge) öffnen sie die im Terminal angezeigte URL in Firefox oder Chrome.
 3. Starten Sie ein Python-Notebook durch den entsprechenden Button.
 4. Geben Sie folgenden Python-Code in die oberste Notebook-Zelle ein:
