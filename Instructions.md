@@ -28,6 +28,25 @@ Anleitungen für die Installation
 finden sie unter <https://git-scm.com/download/linux>.
 
 
+## Übungs-Dateien beziehen
+
+### Variante Git:
+
+Starten Sie die Kommandozeile (= "Terminal" = "Konsole")
+bzw. auf Windows die Git-Bash
+(nach der Git-Installation im Windows-Start-Menü verfügbar)
+und führen Sie folgenden Befehl aus:
+
+```bash
+git clone https://github.com/smurve/HSR2019.git
+```
+
+### Variante Zip-Archiv:
+
+Laden Sie <https://github.com/smurve/HSR2019/archive/master.zip> herunter
+und entpacken Sie den Inhalt.
+
+
 ## Installation der benötigten Software
 
 Für die Übung Nr. 7 vom Mittwoch, 4. April 2019, benötigen Sie Jupyter Lab mit Python, NumPy, TensorFlow und einige Python-Libraries. Bitte nehmen Sie die Installation wenn möglich bereits vorher vor.
