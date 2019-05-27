@@ -51,19 +51,108 @@ und entpacken Sie den Inhalt.
 
 Für die Übung Nr. 7 vom Mittwoch, 4. April 2019, benötigen Sie Jupyter Lab mit Python, NumPy, TensorFlow und einige Python-Libraries. Bitte nehmen Sie die Installation wenn möglich bereits vorher vor.
 
-Es gibt folgende drei Varianten zur Installation:
+Es gibt folgende vier Varianten zur Installation:
 
-* A: (empfohlen) **Lokale Python-Installation**, Rest in Python "virtualenv"
-* B: (falls A nicht klappt) **lokaler Docker-Container**
-* C: (falls A & B nicht gehen) **"Binder"** im Web
+* A: (empfohlen für Windows) **Anaconda**
+* B: (empfohlen für Linux und OS X) **Lokale Python-Installation**, Rest in Python "virtualenv"
+* C: (falls A nicht klappt) **lokaler Docker-Container**
+* D: (falls A & B nicht gehen) **"Binder"** im Web
 
-### Variante A: Lokale Python-Installation (empfohlen)
+### Variante A: Anaconda
 
-:::info
-#### TODO: Windows-Anleitung überarbeiten
-- Anaconda anstatt "normale" Python-Istallation?
-- Windows Subsystem for Linux verwenden?
-:::
+**Für Windows die empfohlene Variante.**
+Falls Sie jedoch bereits ein funktionierendes Setup
+z.B. mit Python im Windows Subsystem for Linux (WSL)
+haben,
+können Sie stattdessen auch dieses weiterverwenden.
+Folgen Sie dafür der Anleitung von Variante B
+(Lokale Python-Installation) ab Schritt "virtualenv erstellen".
+
+#### Anaconda-Installation
+
+(Anleitung nur auf Windows getestet.)
+
+1. Laden Sie von <https://www.anaconda.com/distribution/> den Anaconda-Installer (Variante "Python 3.x") für Ihr Betriebssystem herunter und starten Sie ihn.
+2. Bei der Installation können Sie die Default-Werte des Installations-Assistent übernehmen und jeweils "Weiter" klicken.
+   * Die Angebote "Learn more about Anaconda Cloud" und "Learn how to get started with Anaconda"
+     auf dem letzten Screen des Installers können Sie natürlich getrost abwählen.
+
+#### Conda-Environment erstellen & Dependencies installieren
+
+1. Starten Sie Anaconda Navigator
+2. Wechseln Sie auf Tab "Environments"
+3. Sie können die benötigten Bibliotheken im Default-Environment "base (root)" installieren
+   oder per "Create" ein dediziertes Environment für diese Übung erstellen.
+   * Falls Sie ein dediziertes Environment erstellen, wählen Sie Python 3.7 aus
+   (R benötigen wir nicht)
+   und vergeben Sie einen sinnvollen Namen,
+   z.B. `datana-df`
+4. Klicken Sie auf das ▶-Symbol des zu verwendenden Environments
+   und wählen Sie aus dem erscheinenden Menü "Open Terminal".
+   Ein Kommandozeilen-Fenster erscheint.
+   Wechseln Sie per `cd <pfad>` ins Verzeichnis,
+   in dem die Übungsdateien (u.A. `requirements.txt`) liegen,
+   z.B.
+   ```
+   cd HSR2019
+   ```
+6. Prüfen Sie, ob `pip` im gewählten Environment liegt:
+   ```
+   pip --version
+   ```
+   (Der mit der Version ausgegebene Pfad
+   sollte im Unterverzeichnis `Anaconda3` ihres Benutzer-Verzeichnisses liegen,
+   z.B. `C:\Users\HSR\Anaconda3\lib\site-packages\pip`
+   oder `C:\Users\HSR\Anaconda3\envs\datana-df\lib\site-packages\pip`.)
+7. Installieren Sie die in `requirements.txt` spezifizierten Python-Pakete wie folgt:
+   ```
+   pip install -r requirements.txt
+   ```
+
+Die Meldung
+```
+ERROR: apache-beam 2.12.0 has requirement mock<3.0.0,>=1.0.1, but you'll have mock 3.0.5 which is incompatible.
+```
+können Sie ignorieren, sofern die Installation trotzdem weiterläuft.
+
+Gegen Ende der Ausgabe sollte `Successfully installed `... stehen.
+
+Alernativ können Sie mit
+```
+echo %errorlevel%
+```
+auf Windows
+oder mit
+```bash
+echo $?
+```
+auf OS X und Linux überprüfen,
+ob alles funktioniert hat.
+Ausgabe `0` bedeutet: Alles OK.
+
+
+#### JupyterLab in Conda-Environment starten
+
+(Falls das Kommandozeilen-Fenster aus dem vorherigen Abschnitt
+"Conda-Environment erstellen & Dependencies installieren"
+noch offen ist, können Sie dieses weiterverwenden
+und bei Schritt 5 fortfahren.)
+
+1. Starten Sie Anaconda Navigator
+2. Wechseln Sie auf Tab "Environments"
+3. Klicken Sie auf das ▶-Symbol des Environments,
+   in dem Sie zuvor die Installation vorgenommen haben,
+   und wählen Sie aus dem erscheinenden Menü "Open Terminal".
+   Ein Kommandozeilen-Fenster erscheint.
+4. Wechseln Sie darin per `cd <pfad>` in das Verzeichnis mit den Übungs-Dateien
+5. Führen Sie folgenden Befehl aus:
+   ```
+   jupyter lab
+   ```
+
+### Variante B: Lokale Python-Installation
+
+**Für Linux und OS X empfohlene Variante**
 
 1. Installieren Sie **Python** (wenn möglich **Python 3**).  
    Falls Sie eine Anleitung dazu benötigen, finden Sie eine unter <https://tutorial.djangogirls.org/de/python_installation/>.[^ausklappen]
@@ -114,7 +203,7 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
 5. Führen Sie die Zelle mit <kbd>⇧ Shift</kbd>+<kbd>↵ Enter</kbd> oder mit dem Run-Knopf (▶) aus.  
    Falls das zu keiner Fehlermeldung führt, sollte alles funktioniert haben.
 
-### Variante B: Lokaler Docker-Container
+### Variante C: Lokaler Docker-Container
 
 (Alternative, falls Variante A nicht funktioniert).
 
@@ -156,7 +245,7 @@ Um auf Jupyter Lab aus einem lokal laufenden Browser zuzugreifen, haben Sie zwei
   :warning: Alles im Container, was ausserhalb von `work/` liegt, geht **beim Beenden des Containers verloren!**
   :::
 
-### Variante C: "Binder" im Web
+### Variante D: "Binder" im Web
 
 (Nur als Not-Lösung, falls A und B nicht gehen. Ist wegen geteilter spendenfinanzierter Hardware-Ressourcen vermutlich deutlich langsamer.)
 
