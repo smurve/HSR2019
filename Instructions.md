@@ -3,6 +3,16 @@ Vorbereitungen zur Übung Nr. 7 "Tensorflow: Einführung"
 
 _Übung zur Gastvorlesung von Wolfgang Giersche (Zühlke) im Modul Data Analytics (M_DatAna), Bachelor Informatik, HSR Hochschule für Technik Rapperswil, FS 2019 (Prof. Stefan Keller und Raphael Das Gupta)_
 
+## Freiwillig: Default-Browser anpassen (Windows)
+
+Microsoft Edge stellt die JupyterLab-Oberfläche nicht richtig dar.
+Falls auf Ihrem System Edge als Standard-Browser eingestellt ist,
+können Sie das in den Windows-Einstellungen
+unter "System" > "Default apps" ändern.
+So kann Jupyter gleich einen passenden Browser starten.
+
+Sowohl mit Firefox als auch mit Chrome funktioniert JupyterLab gut.
+
 ## Freiwillig: Installation von Git
 
 Sie können die Dateien für die Übung als Zip-Archiv herunterladen oder das Repository mit Git auf ihren eigenen Computer clonen. Eine Anleitung zur Git-Installation finden Sie auf <https://tutorial.djangogirls.org/de/installation/#git-installieren>.[^ausklappen]
