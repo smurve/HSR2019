@@ -351,7 +351,7 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
 
 ### Variante C: Lokaler Docker-Container
 
-(Alternative, falls Variante A nicht funktioniert).
+(Alternative, falls Varianten A und B nicht funktionieren.)
 
 :::info
 :bulb: Hierfür muss **Docker bereits installiert** sein.
