@@ -162,21 +162,18 @@ Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläc
 
 1. Installieren Sie **Python** (wenn möglich **Python 3**).  
    Falls Sie eine Anleitung dazu benötigen, finden Sie eine unter <https://tutorial.djangogirls.org/de/python_installation/>.[^ausklappen]
-2. Erstellen Sie ein **Python "virtualenv"**.  
+2. Öffnen Sie ein Kommandozeilen-Fenster
+3. Wechseln Sie per `cd <pfad>` ins Verzeichnis,
+   in dem die Übungsdateien (u.A. `requirements.txt`) liegen,
+   z.B.
+   ```bash
+   cd HSR2019
+   ```
+4. Erstellen Sie dort ein **Python "virtualenv"**.
    Eine Anleitung und Erleuterungen dazu finden Sie unter <https://tutorial.djangogirls.org/de/installation/#virtuelle-umgebung/>.[^ausklappen][^kein-django]
-3. Aktivieren Sie **das "virtualenv**"  
+5. Aktivieren Sie **das "virtualenv**"  
    Eine Anleitung dazu finden Sie unter <https://tutorial.djangogirls.org/de/installation/#mit-der-virtuellen-umgebung-arbeiten>.[^ausklappen][^kein-django]
-4. Erstellen Sie im aktuellen Verzeichnis eine **Plaintext-Datei namens `requirements.txt`** mit folgendem Inhalt:
-   ```
-   tensorflow>1.8,<1.14
-   tensorflow_transform
-   jupyterlab
-   numpy
-   matplotlib
-   pandas
-   seaborn
-   ```
-5. Installieren Sie im Terminal, in dem das "virtualenv" aktiv ist[^venv], die in der Datei `requirements.txt` spezifizierte Python-Software wie folgt:
+6. Installieren Sie im Terminal, in dem das "virtualenv" aktiv ist[^venv], die in der Datei `requirements.txt` spezifizierte Python-Software wie folgt:
    ```bash
    pip install -r requirements.txt
    ```
