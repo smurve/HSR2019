@@ -353,9 +353,7 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
 
 (Alternative, falls Varianten A und B nicht funktionieren.)
 
-:::info
-:bulb: Hierfür muss **Docker bereits installiert** sein.
-:::
+> :bulb: Hierfür muss **Docker bereits installiert** sein.
 
 Starten Sie wie folgt einen flüchtigen Docker-Container basierend auf dem Docker-Image `jupyter/tensorflow-notebook` (dieses wird hierdurch falls notwendig automatisch heruntergeladen):
 
@@ -387,9 +385,9 @@ Um auf Jupyter Lab aus einem lokal laufenden Browser zuzugreifen, haben Sie zwei
 #### Hinweise:
 
 * Das aktuelle Host-Verzeichnis wird im Container (und in Jupyter Lab) als `work/` eingebunden. Sie können dieses Verzeichnis sowohl vom Host als auch von Jupyter Lab aus lesen und schreiben.  
-  :::danger
-  :warning: Alles im Container, was ausserhalb von `work/` liegt, geht **beim Beenden des Containers verloren!**
-  :::
+ 
+  > :warning: Alles im Container, was ausserhalb von `work/` liegt, geht **beim Beenden des Containers verloren!**
+
 
 ### Variante D: "Binder" im Web
 
@@ -397,9 +395,7 @@ Um auf Jupyter Lab aus einem lokal laufenden Browser zuzugreifen, haben Sie zwei
 
 "Binder" (https://mybinder.org) ist eine Plattform, auf der vorbereitete Jupyter-Notebooks samt benötigter Software ausprobiert werden können. Dazu wird für jede Benutzersitzung ein Docker-Container auf der Plattform gestartet. [Dieser wird nach einer Weile automatisch wieder beendet und gelöscht.](https://mybinder.readthedocs.io/en/latest/faq.html#how-long-will-my-binder-session-last)
 
-:::danger
-:warning: Bei der automatischen Löschung des Containers geht alles verloren, was Sie nicht explizit auf Ihren eigenen Computer heruntergeladen haben.
-:::
+> :warning: Bei der automatischen Löschung des Containers geht alles verloren, was Sie nicht explizit auf Ihren eigenen Computer heruntergeladen haben.
 
 Um eine solche Sitzung zu starten, klicken Sie auf: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/smurve/HSR2019/master?urlpath=lab).
 
