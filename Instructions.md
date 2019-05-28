@@ -355,16 +355,25 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
 
 > :bulb: Hierfür muss **Docker bereits installiert** sein.
 
-Starten Sie wie folgt einen flüchtigen Docker-Container basierend auf dem Docker-Image `jupyter/tensorflow-notebook` (dieses wird hierdurch falls notwendig automatisch heruntergeladen):
+Bauen Sie wie folgt
+ein Image namens `datana-tf`
+aus dem in den Übungsdateien bereitgestellten `Dockerfile`:
+
+```bash
+docker build -t datana-tf .
+```
+
+Starten Sie dann wie folgt
+einen flüchtigen Docker-Container mit diesem Image:
 
 Bash (OS X, Linux, oder auf Windows Git Bash oder MinGW):
 ```bash
-docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/tensorflow-notebook
+docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work datana-t
 ```
 
 Windows CMD:
 ```cmd
-docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "%CD%":/home/jovyan/work jupyter/tensorflow-notebook
+docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "%CD%":/home/jovyan/work datana-t
 ```
 
 Warten Sie, bis der Container Jupyter Lab gestartet hat. Das ist der Fall, wenn ein Text wie folgender im Terminal ausgegeben wird:
