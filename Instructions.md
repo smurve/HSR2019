@@ -341,7 +341,7 @@ vorangestellt sein.
 
 Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installation können Sie ihr Setup wie folgt testen:
 
-1. Starten Sie aus dem Terminal, in dem das "virtualenv" aktiv ist[^venv], Jupyter Lab:
+1. Starten Sie aus dem Terminal, in dem das "virtualenv" aktiv ist, Jupyter Lab:
    ```bash
    jupyter lab
    ```
