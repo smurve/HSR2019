@@ -202,7 +202,9 @@ Führen Sie den Installer aus und folgen Sie
 den Anweisungen des Installationsprogramms.
 Achten Sie dabei darauf,
 dass "Add Python to environment variables"
-angewählt ist.
+angewählt ist:
+
+![Python installer wizard](images/Screenshot-add-Python-to-Env-Vars.png)
 
 Falls etwas nicht klappt,
 finden Sie eine ausführlichere Anleitung
