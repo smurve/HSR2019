@@ -256,7 +256,28 @@ Auf openSUSE:
 sudo zypper install python3
 ```
 
-### Python-Virtualenv erzeugen & Dependencies installieren
+### Python-Virtualenv erzeugen
+
+Ein Python-Virtualenv ist eine Art "virtuelle Umgebung",
+in der man Python-Pakete installieren kann,
+ohne die System-Installation von Python
+oder andere solche Python-Virtualenvs zu beeinflussen.
+(Es handelt sich jedoch **nicht** um eine virtuelle Maschine (VM),
+in der beliebige Software vom Rest des Systems isoliert werden könnte.)
+Durch Verwendung seperater Virtualenvs
+kann man für verschiedene Projekte
+verschiedene Versionen des selben Python-Pakets verwenden
+oder in einem Projekt ein Paket verwenden,
+das nicht gleichzeitig mit einem anderen Paket installiert sein kann,
+das man vielleicht in einem anderen Projekt benötigt.
+
+Ausserdem benötigen Installationen
+in eigenen Virtualenvs des Benutzers
+keine Root- oder Admin-Rechte.
+
+Daher empfehlen wir, die Installation der Dependencies in einem Virtualenv vorzunehmen.
+
+So erstellen Sie eines:
 
 1. Öffnen Sie ein Kommandozeilen-Fenster
 2. Wechseln Sie per `cd <pfad>` ins Verzeichnis,
@@ -265,18 +286,58 @@ sudo zypper install python3
    ```bash
    cd HSR2019
    ```
-3. Erstellen Sie dort ein **Python "virtualenv"**.
-   Eine Anleitung und Erleuterungen dazu finden Sie unter <https://tutorial.djangogirls.org/de/installation/#virtuelle-umgebung/>.[^ausklappen][^kein-django]
-4. Aktivieren Sie **das "virtualenv**"  
-   Eine Anleitung dazu finden Sie unter <https://tutorial.djangogirls.org/de/installation/#mit-der-virtuellen-umgebung-arbeiten>.[^ausklappen][^kein-django]
-5. Installieren Sie im Terminal, in dem das "virtualenv" aktiv ist[^venv], die in der Datei `requirements.txt` spezifizierte Python-Software wie folgt:
+3. Erstellen sie hier mit folgendem Befehl
+   ein Virtualenv namens `datana-df-venv`:
+   ```bash
+   python3 -m venv datana-df-venv
+   ```
+   oder
+   (falls Sie Python 2 verwenden wollen
+   oder falls der `python`-Befehl auf Ihrem Computer Python 3 ist)
+   ```bash
+   python3 -m venv datana-df-venv
+   ```
+4. Aktivieren Sie das Virtualenv wie folgt:
+
+   Windows PowerShell oder Windows-CMD:
+   ```
+   datana-df-venv\Scripts\activate
+   ```
+   OS X, Linux oder Git-Bash:
+   ```bash
+   source datana-df-venv/bin/activate
+   ```
+   oder
+   ```bash
+   . datana-df-venv/bin/activate
+   ```
+   
+### Dependencies in virtualenv installieren
+
+Falls Sie das Terminal aus dem Schritt oben noch offen haben,
+können Sie es hier weiterverwenden.
+
+Falls nicht:
+1. Öffnen Sie ein Kommandozeilen-Fenster
+2. Wechseln Sie per `cd <pfad>` ins Verzeichnis,
+   in dem die Übungsdateien (u.A. `requirements.txt`) liegen,
+   z.B.
+   ```bash
+   cd HSR2019
+   ```
+3. Aktivieren Sie Virtualenv wie oben beschrieben.
+
+Dem Kommandozeilen-Prompt sollte nun
+der Virtualenv-Name in Klammern (z.B. `(datana-df-venv)`)
+vorangestellt sein.
+
+5. Installieren Sie im Terminal,
+   in dem das "virtualenv" aktiv ist,
+   die in `requirements.txt` spezifizierten Python-Pakete
+   wie folgt:
    ```bash
    pip install -r requirements.txt
    ```
-
-[^ausklappen]: Beachten Sie, dass dort die Betriebssystem-abhängigen Schritte jener Anleitung der Übersicht halber erst aufgeklappt werden müssen.
-[^kein-django]: Nur diesen einen Abschnitt verwenden, da er Teil einer grössen Anleitung für etwas anderes ist. Django müssen Sie für die Übung nicht installieren.
-[^venv]: Das können Sie an der Beschriftung `(myvenv)` am Anfang der Prompt-Zeile erkennen. Falls das in ihrem Terminal fehlt, aktivieren Sie es erneut.
 
 Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installation können Sie ihr Setup wie folgt testen:
 
