@@ -1,7 +1,7 @@
-Vorbereitungen zur Übung Nr. 7 "Tensorflow: Einführung"
+Vorbereitungen zu den Machine-Learning- & Tensorflow-Übungen
 ===
 
-_Übung zur Gastvorlesung von Wolfgang Giersche (Zühlke) im Modul Data Analytics (M_DatAna), Bachelor Informatik, HSR Hochschule für Technik Rapperswil, FS 2019 (Prof. Stefan Keller und Raphael Das Gupta)_
+_Übungen zu den Gastvorlesungen von Wolfgang Giersche (Zühlke) im Modul Data Analytics (M_DatAna), Bachelor Informatik, HSR Hochschule für Technik Rapperswil, FS 2019 (Prof. Stefan Keller und Raphael Das Gupta)_
 
 ## Freiwillig: Default-Browser anpassen (Windows)
 
