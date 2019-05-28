@@ -348,20 +348,6 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
    Das Ergebnis sollte so aussehen:  
    ![Jupyter Lab in Firefox](images/Screenshot_JupyterLab_in_Firefox.png)
 2. Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläche darin nicht korrekt dargestellt wird (z.B. in Internet Explorer oder Edge) öffnen sie die im Terminal angezeigte URL in Firefox oder Chrome.
-3. Starten Sie ein Python-Notebook durch den entsprechenden Button.
-4. Geben Sie folgenden Python-Code in die oberste Notebook-Zelle ein:
-   ```python
-   from __future__ import (absolute_import, division, print_function)
-   
-   import numpy as np
-   import pandas as pd
-   import matplotlib.pyplot as plt
-
-   import tensorflow as tf
-   import seaborn as sns
-   ```
-5. Führen Sie die Zelle mit <kbd>⇧ Shift</kbd>+<kbd>↵ Enter</kbd> oder mit dem Run-Knopf (▶) aus.  
-   Falls das zu keiner Fehlermeldung führt, sollte alles funktioniert haben.
 
 ### Variante C: Lokaler Docker-Container
 
