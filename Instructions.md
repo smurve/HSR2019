@@ -160,20 +160,116 @@ Falls dadurch kein Browser geöffnet wurde, oder falls die Jupyter-Lab-Oberfläc
 
 **Für Linux und OS X empfohlene Variante**
 
-1. Installieren Sie **Python** (wenn möglich **Python 3**).  
-   Falls Sie eine Anleitung dazu benötigen, finden Sie eine unter <https://tutorial.djangogirls.org/de/python_installation/>.[^ausklappen]
-2. Öffnen Sie ein Kommandozeilen-Fenster
-3. Wechseln Sie per `cd <pfad>` ins Verzeichnis,
+#### Python-Installation notwendig?
+
+Es kann sein, dass Python auf ihrem Computer bereits installiert ist.
+
+Öffnen Sie ein Kommandozeiltenfenster
+und prüfen Sie wie folgt,
+ob Python 3 bereits installiert ist:
+```bash
+python3 --version
+```
+
+Falls keine Python-Version ausgegeben wird,
+versuchen Sie es mit
+```bash
+python --version
+```
+
+Falls auch hier keine Python-Version angezeigt wird,
+muss Python erst noch installiert werden.
+Falls beim zweiten Befehl eine mit `2.` beginnende
+Versionsnummer angezeigt wird,
+können Sie Python 3 parallel zu Python 2 installieren
+oder die Übung mit Python 2 durchführen.
+
+(Python 2 und 3 können gleichzeitig installiert sein
+und stören sich gegenseitig nicht.)
+
+#### Python installieren
+
+##### Python-Installation auf Windows
+
+Laden Sie von <https://python.org/downloads/windows/>
+den für Ihre Windows-Variante passenden
+(`x86-64` für 64bit-Windows,
+`x86` für 32bit-Windows)
+"executable installer"
+des neusten "Stable Release" herunter.
+
+Führen Sie den Installer aus und folgen Sie
+den Anweisungen des Installationsprogramms.
+Achten Sie dabei darauf,
+dass "Add Python to environment variables"
+angewählt ist.
+
+Falls etwas nicht klappt,
+finden Sie eine ausführlichere Anleitung
+unter <https://tutorial.djangogirls.org/de/python_installation/>.
+Beachten Sie, dass
+dort die Betriebssystem-abhängigen Schritte jener Anleitung
+der Übersicht halber erst aufgeklappt werden müssen.
+
+#### Python-Installation auf Mac OS X
+
+> **Hinweis**
+> Bevor Sie Python auf Mac OS X installieren,
+> müssen Sie sicherstellen,
+> dass Ihre Mac-Einstellungen es erlauben,
+> Pakete zu installieren,
+> die nicht aus dem App Store stammen.
+> Gehen Sie auf Systemeinstellungen (im Ordner "Programme"),
+> klicken Sie auf "Sicherheit"
+> und dann auf die Registerkarte "Allgemein".
+> Wenn "Apps-Download erlauben von:"
+> auf "Mac App Store" gestellt ist,
+> ändern Sie die Einstellung auf
+> "Mac App Store und verifizierte Entwickler".
+
+Laden Sie von <https://www.python.org/downloads/mac-osx/>
+den für Ihre OS-X-Variante
+(64-bit oder 32-bit)
+passenden Installer
+des neusten "Stable Release" herunter.
+
+Starten Sie die Installation durch Doppelklick
+auf die heruntergeladene `.pkg`-Datei.
+
+#### Python-Installation auf Linux
+
+Installieren Sie Python
+über den Paket-Manager Ihrer Linux-Distribution.
+
+Auf Debian, Ubuntu & deren Derivate:
+```bash
+sudo apt install python3
+```
+
+Auf Fedora und Red Hat Linux:
+```bash
+sudo dnf install python3
+```
+
+Auf openSUSE:
+```bash
+sudo zypper install python3
+```
+
+### Python-Virtualenv erzeugen & Dependencies installieren
+
+1. Öffnen Sie ein Kommandozeilen-Fenster
+2. Wechseln Sie per `cd <pfad>` ins Verzeichnis,
    in dem die Übungsdateien (u.A. `requirements.txt`) liegen,
    z.B.
    ```bash
    cd HSR2019
    ```
-4. Erstellen Sie dort ein **Python "virtualenv"**.
+3. Erstellen Sie dort ein **Python "virtualenv"**.
    Eine Anleitung und Erleuterungen dazu finden Sie unter <https://tutorial.djangogirls.org/de/installation/#virtuelle-umgebung/>.[^ausklappen][^kein-django]
-5. Aktivieren Sie **das "virtualenv**"  
+4. Aktivieren Sie **das "virtualenv**"  
    Eine Anleitung dazu finden Sie unter <https://tutorial.djangogirls.org/de/installation/#mit-der-virtuellen-umgebung-arbeiten>.[^ausklappen][^kein-django]
-6. Installieren Sie im Terminal, in dem das "virtualenv" aktiv ist[^venv], die in der Datei `requirements.txt` spezifizierte Python-Software wie folgt:
+5. Installieren Sie im Terminal, in dem das "virtualenv" aktiv ist[^venv], die in der Datei `requirements.txt` spezifizierte Python-Software wie folgt:
    ```bash
    pip install -r requirements.txt
    ```
