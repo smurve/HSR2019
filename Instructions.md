@@ -357,13 +357,19 @@ Achten Sie darauf, ob Fehlermeldungen ausgegeben wurden. Nach erfolgter Installa
 
 > :bulb: Hierfür muss **Docker bereits installiert** sein.
 
-Bauen Sie wie folgt
-ein Image namens `datana-tf`
-aus dem in den Übungsdateien bereitgestellten `Dockerfile`:
-
-```bash
-docker build -t datana-tf .
-```
+1. Öffnen Sie ein Kommandozeilen-Fenster
+2. Wechseln Sie per `cd <pfad>` ins Verzeichnis,
+   in dem die Übungsdateien (u.A. `requirements.txt`) liegen,
+   z.B.
+   ```bash
+   cd HSR2019
+   ```
+3. Bauen Sie wie folgt
+   ein Image namens `datana-tf`
+   aus dem in den Übungsdateien bereitgestellten `Dockerfile`:
+   ```bash
+   docker build -t datana-tf .
+   ```
 
 Starten Sie dann wie folgt
 einen flüchtigen Docker-Container mit diesem Image:
