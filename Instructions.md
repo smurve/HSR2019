@@ -409,8 +409,3 @@ Um auf Jupyter Lab aus einem lokal laufenden Browser zuzugreifen, haben Sie zwei
 > :warning: Bei der automatischen Löschung des Containers geht alles verloren, was Sie nicht explizit auf Ihren eigenen Computer heruntergeladen haben.
 
 Um eine solche Sitzung zu starten, klicken Sie auf: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/smurve/HSR2019/master?urlpath=lab).
-
-
-
----
-
