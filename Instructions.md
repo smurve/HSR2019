@@ -376,12 +376,12 @@ einen flüchtigen Docker-Container mit diesem Image:
 
 Bash (OS X, Linux, oder auf Windows Git Bash oder MinGW):
 ```bash
-docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work datana-t
+docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work datana-tf
 ```
 
 Windows CMD:
 ```cmd
-docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "%CD%":/home/jovyan/work datana-t
+docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "%CD%":/home/jovyan/work datana-tf
 ```
 
 Warten Sie, bis der Container Jupyter Lab gestartet hat. Das ist der Fall, wenn ein Text wie folgender im Terminal ausgegeben wird:
