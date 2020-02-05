@@ -37,7 +37,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13336,17 +13336,17 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Mama-look:-No-for-loops">Mama look: No for-loops<a class="anchor-link" href="#Mama-look:-No-for-loops">&#182;</a></h2><p>See <a href="collateral/No_For_Loops.ipynb">collateral/No_For_Loops.ipynb</a> for more.</p>
-<h4 id="The-classical-approach:">The classical approach:<a class="anchor-link" href="#The-classical-approach:">&#182;</a></h4>
-<pre><code>def count_num_samples_with_row_of_3_with_forloop(samples):
-    sum = 0
-    for sample in samples:
-        for r in range(3):
-            for c in range(3):
-                if sample[r][c]==1 and sample[r+1][c+1]==1 and sample[r+2][c+2]== 1:
-                    sum+=1
-    return sum</code></pre>
-<h4 id="A-super-fast-one-liner">A super-fast one-liner<a class="anchor-link" href="#A-super-fast-one-liner">&#182;</a></h4>
-<pre><code>np.sum(np.matmul(detector, np.transpose(np.reshape(samples, [2000, 25])))==3)</code></pre>
+<h4 id="The-classical-approach:">The classical approach:<a class="anchor-link" href="#The-classical-approach:">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_num_samples_with_row_of_3_with_forloop</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">sample</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">sample</span><span class="p">[</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">sample</span><span class="p">[</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">c</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">sum</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+<h4 id="A-super-fast-one-liner">A super-fast one-liner<a class="anchor-link" href="#A-super-fast-one-liner">&#182;</a></h4><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">25</span><span class="p">])))</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
@@ -13377,16 +13377,16 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Tensorflow-Code-Example">Tensorflow Code Example<a class="anchor-link" href="#Tensorflow-Code-Example">&#182;</a></h4>
-<pre><code>import tensorflow as tf
-x = tf.placeholder(shape=(None,1), dtype=tf.float32)
-a = tf.Variable([[.5]], name="weights", dtype=tf.float32)
-b = tf.Variable([[-2.]], name="bias", dtype=tf.float32)
-y = tf.matmul(x, a) + b
-init = tf.global_variables_initializer()
-with tf.Session() as sess:
-    sess.run(init)
-    print(sess.run(y, feed_dict={x: [[2.0], [4.0]]}))</code></pre>
+<h4 id="Tensorflow-Code-Example">Tensorflow Code Example<a class="anchor-link" href="#Tensorflow-Code-Example">&#182;</a></h4><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([[</span><span class="o">.</span><span class="mi">5</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bias&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[[</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">]]}))</span>
+</pre></div>
 
 </div>
 </div>
@@ -13408,20 +13408,20 @@ with tf.Session() as sess:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Apache-Beam-Pipeline-Code">Apache Beam Pipeline Code<a class="anchor-link" href="#Apache-Beam-Pipeline-Code">&#182;</a></h4>
-<pre><code>with beam.Pipeline('DirectRunner', PipelineOptions()) as p:
+<h4 id="Apache-Beam-Pipeline-Code">Apache Beam Pipeline Code<a class="anchor-link" href="#Apache-Beam-Pipeline-Code">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">beam</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="s1">&#39;DirectRunner&#39;</span><span class="p">,</span> <span class="n">PipelineOptions</span><span class="p">())</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
 
-    csv_encoder = tft.coders.CsvCoder(ORDERED_SIGNATURE_COLUMNS, schema)    
+    <span class="n">csv_encoder</span> <span class="o">=</span> <span class="n">tft</span><span class="o">.</span><span class="n">coders</span><span class="o">.</span><span class="n">CsvCoder</span><span class="p">(</span><span class="n">ORDERED_SIGNATURE_COLUMNS</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>    
 
-    _ = (p 
-         | 'read_from_csv' &gt;&gt; beam.io.ReadFromText(
-             file_pattern=signature_csv_train, coder=csv_encoder, skip_header_lines=1)
+    <span class="n">_</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> 
+         <span class="o">|</span> <span class="s1">&#39;read_from_csv&#39;</span> <span class="o">&gt;&gt;</span> <span class="n">beam</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ReadFromText</span><span class="p">(</span>
+             <span class="n">file_pattern</span><span class="o">=</span><span class="n">signature_csv_train</span><span class="p">,</span> <span class="n">coder</span><span class="o">=</span><span class="n">csv_encoder</span><span class="p">,</span> <span class="n">skip_header_lines</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-         | 'process_records' &gt;&gt; beam.Map(process_data)
+         <span class="o">|</span> <span class="s1">&#39;process_records&#39;</span> <span class="o">&gt;&gt;</span> <span class="n">beam</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">process_data</span><span class="p">)</span>
 
-         | 'write_to_csv' &gt;&gt; beam.io.WriteToText(
-             file_path_prefix=training_csv, coder=csv_encoder, header=header)
-        )</code></pre>
+         <span class="o">|</span> <span class="s1">&#39;write_to_csv&#39;</span> <span class="o">&gt;&gt;</span> <span class="n">beam</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">WriteToText</span><span class="p">(</span>
+             <span class="n">file_path_prefix</span><span class="o">=</span><span class="n">training_csv</span><span class="p">,</span> <span class="n">coder</span><span class="o">=</span><span class="n">csv_encoder</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
@@ -13441,11 +13441,11 @@ with tf.Session() as sess:
 \beta_{i,k}^\prime = \frac{\beta_{i,k} - min_k(\beta_{i,k})}
 {max_k(\beta_{i,k}) - min_k(\beta_{i,k})}
 $$<p>The <code>tf.transform</code> library achieves all of that with a single line of code:</p>
-
-<pre><code>def process_data(row):
-    for c in ['beta1', 'beta2']:
-        row[c] = tft.scale_to_0_1(row[c])
-    return row</code></pre>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_data</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;beta1&#39;</span><span class="p">,</span> <span class="s1">&#39;beta2&#39;</span><span class="p">]:</span>
+        <span class="n">row</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">tft</span><span class="o">.</span><span class="n">scale_to_0_1</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">row</span>
+</pre></div>
 
 </div>
 </div>
@@ -13453,16 +13453,16 @@ $$<p>The <code>tf.transform</code> library achieves all of that with a single li
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Re-use-the-transform-function">Re-use the transform function<a class="anchor-link" href="#Re-use-the-transform-function">&#182;</a></h2><h4 id="The-transform-function-can-be-saved-for-re-use-at-prediction-time:">The transform function can be saved for re-use at prediction time:<a class="anchor-link" href="#The-transform-function-can-be-saved-for-re-use-at-prediction-time:">&#182;</a></h4>
-<pre><code>data_and_metadata, transform_fn = ( 
-    signature_data | "AnalyzeAndTransform" 
-    &gt;&gt; beam_impl.AnalyzeAndTransformDataset(process_data))</code></pre>
-
-<pre><code>#
-# Eventually, save the transform function for re-use at prediction time.
-#
-_ = (transform_fn | 'WriteTransformFn' 
-     &gt;&gt; transform_fn_io.WriteTransformFn(metadata_dir))</code></pre>
+<h2 id="Re-use-the-transform-function">Re-use the transform function<a class="anchor-link" href="#Re-use-the-transform-function">&#182;</a></h2><h4 id="The-transform-function-can-be-saved-for-re-use-at-prediction-time:">The transform function can be saved for re-use at prediction time:<a class="anchor-link" href="#The-transform-function-can-be-saved-for-re-use-at-prediction-time:">&#182;</a></h4><div class="highlight"><pre><span></span><span class="n">data_and_metadata</span><span class="p">,</span> <span class="n">transform_fn</span> <span class="o">=</span> <span class="p">(</span> 
+    <span class="n">signature_data</span> <span class="o">|</span> <span class="s2">&quot;AnalyzeAndTransform&quot;</span> 
+    <span class="o">&gt;&gt;</span> <span class="n">beam_impl</span><span class="o">.</span><span class="n">AnalyzeAndTransformDataset</span><span class="p">(</span><span class="n">process_data</span><span class="p">))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Eventually, save the transform function for re-use at prediction time.</span>
+<span class="c1">#</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span><span class="n">transform_fn</span> <span class="o">|</span> <span class="s1">&#39;WriteTransformFn&#39;</span> 
+     <span class="o">&gt;&gt;</span> <span class="n">transform_fn_io</span><span class="o">.</span><span class="n">WriteTransformFn</span><span class="p">(</span><span class="n">metadata_dir</span><span class="p">))</span>
+</pre></div>
 
 </div>
 </div>
@@ -13509,21 +13509,21 @@ _ = (transform_fn | 'WriteTransformFn'
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Use-frameworks-for-infrastructure-requirements">Use frameworks for infrastructure requirements<a class="anchor-link" href="#Use-frameworks-for-infrastructure-requirements">&#182;</a></h2><p>See: <a href="collateral/InputFunctions.ipynb">collateral/InputFunctions.ipynb</a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_input_fn</span><span class="p">():</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">make_batched_features_dataset</span><span class="p">(</span>
+        <span class="n">file_pattern</span><span class="o">=</span><span class="n">filename_pattern</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+        <span class="n">features</span><span class="o">=</span><span class="n">feature_spec</span><span class="p">,</span>
+        <span class="n">shuffle_buffer_size</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;shuffle_buffer_size&#39;</span><span class="p">],</span>
+        <span class="n">prefetch_buffer_size</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;prefetch_buffer_size&#39;</span><span class="p">],</span>
+        <span class="n">reader_num_threads</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;reader_num_threads&#39;</span><span class="p">],</span>
+        <span class="n">parser_num_threads</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parser_num_threads&#39;</span><span class="p">],</span>
+        <span class="n">sloppy_ordering</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;sloppy_ordering&#39;</span><span class="p">],</span>
+        <span class="n">num_epochs</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;num_epochs&#39;</span><span class="p">],</span>
+        <span class="n">label_key</span><span class="o">=</span><span class="s1">&#39;humidity&#39;</span><span class="p">)</span>
 
-<pre><code>def _input_fn():
-    dataset = tf.data.experimental.make_batched_features_dataset(
-        file_pattern=filename_pattern,
-        batch_size=batch_size,
-        features=feature_spec,
-        shuffle_buffer_size=options['shuffle_buffer_size'],
-        prefetch_buffer_size=options['prefetch_buffer_size'],
-        reader_num_threads=options['reader_num_threads'],
-        parser_num_threads=options['parser_num_threads'],
-        sloppy_ordering=options['sloppy_ordering'],
-        num_epochs=options['num_epochs'],
-        label_key='humidity')
-
-    return dataset.make_one_shot_iterator().get_next()</code></pre>
+    <span class="k">return</span> <span class="n">dataset</span><span class="o">.</span><span class="n">make_one_shot_iterator</span><span class="p">()</span><span class="o">.</span><span class="n">get_next</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
@@ -13545,16 +13545,16 @@ _ = (transform_fn | 'WriteTransformFn'
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Creating-an-input-layer-for-the-model">Creating an input layer for the model<a class="anchor-link" href="#Creating-an-input-layer-for-the-model">&#182;</a></h2><h4 id="input_layer:-the-$x$-interface-to-the-data-scientist's-work"><code>input_layer</code>: the $x$-interface to the data scientist's work<a class="anchor-link" href="#input_layer:-the-$x$-interface-to-the-data-scientist's-work">&#182;</a></h4>
-<pre><code>weekday = categorical_column_with_identity('weekday', num_buckets=7)
-hour = categorical_column_with_identity('hour', num_buckets=24)
-hour_of_week = indicator_column(crossed_column([weekday, hour], 24*7))</code></pre>
+<h2 id="Creating-an-input-layer-for-the-model">Creating an input layer for the model<a class="anchor-link" href="#Creating-an-input-layer-for-the-model">&#182;</a></h2><h4 id="input_layer:-the-$x$-interface-to-the-data-scientist's-work"><code>input_layer</code>: the $x$-interface to the data scientist's work<a class="anchor-link" href="#input_layer:-the-$x$-interface-to-the-data-scientist's-work">&#182;</a></h4><div class="highlight"><pre><span></span><span class="n">weekday</span> <span class="o">=</span> <span class="n">categorical_column_with_identity</span><span class="p">(</span><span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="n">num_buckets</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="n">categorical_column_with_identity</span><span class="p">(</span><span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="n">num_buckets</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">hour_of_week</span> <span class="o">=</span> <span class="n">indicator_column</span><span class="p">(</span><span class="n">crossed_column</span><span class="p">([</span><span class="n">weekday</span><span class="p">,</span> <span class="n">hour</span><span class="p">],</span> <span class="mi">24</span><span class="o">*</span><span class="mi">7</span><span class="p">))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">all_feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">hour_of_week</span><span class="p">]</span>
 
-<pre><code>all_feature_columns = [beta1, beta2, hour_of_week]
-
-input_layer = tf.feature_column.input_layer( 
-    features, 
-    feature_columns=[beta1, beta2, hour_of_week])</code></pre>
+<span class="n">input_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">feature_column</span><span class="o">.</span><span class="n">input_layer</span><span class="p">(</span> 
+    <span class="n">features</span><span class="p">,</span> 
+    <span class="n">feature_columns</span><span class="o">=</span><span class="p">[</span><span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">hour_of_week</span><span class="p">])</span>
+</pre></div>
 
 </div>
 </div>
@@ -13621,37 +13621,20 @@ input_layer = tf.feature_column.input_layer(
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="The-model-function">The model function<a class="anchor-link" href="#The-model-function">&#182;</a></h4>
-<pre><code>def model_function(features, labels, mode):
+<h4 id="The-model-function">The model function<a class="anchor-link" href="#The-model-function">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_function</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
 
-    my_input_layer = input_layer(features)
-    linreg = tf.layers.Dense(name="LinReg", units=1)
-    hypothesis =linreg(my_input_layer)
+    <span class="n">my_input_layer</span> <span class="o">=</span> <span class="n">input_layer</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    <span class="n">linreg</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;LinReg&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">hypothesis</span> <span class="o">=</span><span class="n">linreg</span><span class="p">(</span><span class="n">my_input_layer</span><span class="p">)</span>
 
-    #
-    # For predictions, we just need the hypothesis.
-    #
-    if mode == tf.estimator.ModeKeys.PREDICT:
-        return tf.estimator.EstimatorSpec(
-            tf.estimator.ModeKeys.PREDICT, 
-            predictions=hypothesis)</code></pre>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="The-model-function-for-training">The model function for training<a class="anchor-link" href="#The-model-function-for-training">&#182;</a></h4>
-<pre><code>    ...
-    optimizer = tf.train.AdamOptimizer(learning_rate=1e-0)
-    train_op = optimizer.minimize(loss,...)
-
-    return tf.estimator.EstimatorSpec(  
-        tf.estimator.ModeKeys.TRAIN,
-        loss = loss,
-        train_op = train_op)
-    ...</code></pre>
+    <span class="c1">#</span>
+    <span class="c1"># For predictions, we just need the hypothesis.</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">,</span> 
+            <span class="n">predictions</span><span class="o">=</span><span class="n">hypothesis</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
@@ -13659,34 +13642,16 @@ input_layer = tf.feature_column.input_layer(
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Construct-the-estimator">Construct the estimator<a class="anchor-link" href="#Construct-the-estimator">&#182;</a></h4>
-<pre><code>config = RunConfig(
-    model_dir              = model_dir,
-    save_summary_steps     = 1,
-    save_checkpoints_steps = 100,
-    log_step_count_steps   = 10)
+<h4 id="The-model-function-for-training">The model function for training<a class="anchor-link" href="#The-model-function-for-training">&#182;</a></h4><div class="highlight"><pre><span></span><span class="o">...</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-0</span><span class="p">)</span>
+    <span class="n">train_op</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
 
-estimator = tf.estimator.Estimator(
-    config=config,
-    model_fn=model_function)</code></pre>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Let-it-train">Let it train<a class="anchor-link" href="#Let-it-train">&#182;</a></h4>
-<pre><code>train_spec = tf.estimator.TrainSpec(
-    input_fn=train_input_fn, 
-    max_steps=max_steps)
-
-...
-
-tf.estimator.train_and_evaluate(
-    estimator,
-    train_spec=train_spec,
-    eval_spec=eval_spec)</code></pre>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span>  
+        <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">,</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span><span class="p">,</span>
+        <span class="n">train_op</span> <span class="o">=</span> <span class="n">train_op</span><span class="p">)</span>
+    <span class="o">...</span>
+</pre></div>
 
 </div>
 </div>
@@ -13694,17 +13659,52 @@ tf.estimator.train_and_evaluate(
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Using-the-trained-model">Using the trained model<a class="anchor-link" href="#Using-the-trained-model">&#182;</a></h2>
-<pre><code>estimator = tf.contrib.predictor.from_saved_model(latest_model)
+<h4 id="Construct-the-estimator">Construct the estimator<a class="anchor-link" href="#Construct-the-estimator">&#182;</a></h4><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">RunConfig</span><span class="p">(</span>
+    <span class="n">model_dir</span>              <span class="o">=</span> <span class="n">model_dir</span><span class="p">,</span>
+    <span class="n">save_summary_steps</span>     <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">save_checkpoints_steps</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">log_step_count_steps</span>   <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
-sample = {
-    'beta1': [[1.234],[1.234]],
-    'beta2': [[1.234],[1.234]],
-    'weekday': [[5], [6]],
-    'hour': [[16], [17]]
-}
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+    <span class="n">model_fn</span><span class="o">=</span><span class="n">model_function</span><span class="p">)</span>
+</pre></div>
 
-result = estimator(sample)</code></pre>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Let-it-train">Let it train<a class="anchor-link" href="#Let-it-train">&#182;</a></h4><div class="highlight"><pre><span></span><span class="n">train_spec</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">TrainSpec</span><span class="p">(</span>
+    <span class="n">input_fn</span><span class="o">=</span><span class="n">train_input_fn</span><span class="p">,</span> 
+    <span class="n">max_steps</span><span class="o">=</span><span class="n">max_steps</span><span class="p">)</span>
+
+<span class="o">...</span>
+
+<span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">train_and_evaluate</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="p">,</span>
+    <span class="n">train_spec</span><span class="o">=</span><span class="n">train_spec</span><span class="p">,</span>
+    <span class="n">eval_spec</span><span class="o">=</span><span class="n">eval_spec</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-the-trained-model">Using the trained model<a class="anchor-link" href="#Using-the-trained-model">&#182;</a></h2><div class="highlight"><pre><span></span><span class="n">estimator</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">from_saved_model</span><span class="p">(</span><span class="n">latest_model</span><span class="p">)</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;beta1&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.234</span><span class="p">],[</span><span class="mf">1.234</span><span class="p">]],</span>
+    <span class="s1">&#39;beta2&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.234</span><span class="p">],[</span><span class="mf">1.234</span><span class="p">]],</span>
+    <span class="s1">&#39;weekday&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">]],</span>
+    <span class="s1">&#39;hour&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">16</span><span class="p">],</span> <span class="p">[</span><span class="mi">17</span><span class="p">]]</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">estimator</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
